@@ -5,6 +5,7 @@ import logo from '../assets/mainLogo.png';
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 965);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,10 +22,18 @@ const Header = () => {
       setActiveSection(currentSection);
     };
 
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 965);
+    };
+
     window.addEventListener('scroll', handleScroll);
+    window.addEventListener('resize', handleResize);
     handleScroll();
 
-    return () => window.removeEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleResize);
+    };
   }, []);
 
   const scrollToSection = (id) => {
@@ -39,7 +48,12 @@ const Header = () => {
         <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-full h-full">
           <div className="flex items-center gap-5 space-x-2">
             <img src={logo} alt="MLSC Logo" className="w-16 h-16 object-contain" />
-            <div className="text-2xl font-semibold tracking-wide text-white">Microsoft Learning Student Club</div>
+            <div className="hidden lg:block text-2xl font-semibold tracking-wide text-white">
+              Microsoft Learning Student Club
+            </div>
+            <div className="block lg:hidden text-2xl font-semibold tracking-wide text-white">
+              MLSC
+            </div>
           </div>
           <div className="flex items-center md:hidden">
             <button

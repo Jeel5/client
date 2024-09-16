@@ -15,7 +15,7 @@ const Footer = () => {
             <strong>Address:</strong> BVM, Vidyanagar, Anand, Gujrat, India
           </p>
           <p className="mb-4">
-            <strong>Email:</strong> mlsc123@gmail.com
+            <strong>Email:</strong> mlsaclub@bvmengineering.ac.in
           </p>
         </div>
 
@@ -27,17 +27,23 @@ const Footer = () => {
             <li><a href="#team" className="hover:text-indigo-300">Team</a></li>
             <li><a href="#events" className="hover:text-indigo-300">Events</a></li>
             <li><a href="#contact" className="hover:text-indigo-300">Contact</a></li>
-            <li><a href="#join" className="hover:text-indigo-300">Join Us</a></li>
+            <li>
+              <a href="https://chat.whatsapp.com/DN15JP4KyOB4OrsAjVT9MG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-300">Join Us
+              </a>
+            </li>
           </ul>
         </div>
 
         <div className="hidden md:flex flex-col mb-8 ml-20 md:mb-0">
           <h3 className="text-xl font-semibold text-nowrap mb-4 text-indigo-400">Follow Us</h3>
           <div className="flex space-x-4">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <a href="https://www.linkedin.com/in/mlsc-bvm/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <FaLinkedinIn className="text-2xl" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <a href="https://www.instagram.com/mlsc_bvm/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <FaInstagram className="text-2xl" />
             </a>
           </div>
@@ -58,17 +64,20 @@ const Footer = () => {
             <span>|</span>
             <a href="#contact" className="hover:text-indigo-300">Contact</a>
             <span>|</span>
-            <a href="#join" className="hover:text-indigo-300">Join Us</a>
+            <a href="https://chat.whatsapp.com/DN15JP4KyOB4OrsAjVT9MG"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-indigo-300">Join Us</a>
           </div>
         </div>
 
         <div className="mb-8">
           <h3 className="text-xl font-semibold mb-4 text-indigo-400">Follow Us</h3>
           <div className="flex justify-center space-x-4">
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <a href="https://www.linkedin.com/in/mlsc-bvm/?originalSubdomain=in" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <FaLinkedinIn className="text-2xl" />
             </a>
-            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
+            <a href="https://www.instagram.com/mlsc_bvm/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white">
               <FaInstagram className="text-2xl" />
             </a>
           </div>

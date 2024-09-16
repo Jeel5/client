@@ -44,9 +44,9 @@ const Event = () => {
       <div id="upcoming-events" className="mb-16">
         <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Upcoming Events</h2>
         <div className="flex flex-wrap justify-center gap-6">
-          {upEvents.slice(0, 3).map((event) => (
+          {upEvents.slice(0, 3).map((event, index) => (
             <div
-              key={event.id}
+              key={`${event.id}-${index}`} // Added a unique key using event.id and index
               className="relative w-full sm:w-80 h-80 p-4 group"
             >
               <div className="absolute left-7 top-8 w-72 h-80 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-xl"></div>
@@ -90,7 +90,7 @@ const Event = () => {
 
           {events.map((event, index) => (
             <div
-              key={event.id}
+              key={`${event.id}-${index}`} // Added a unique key using event.id and index
               ref={(el) => (eventRefs.current[index] = el)}
               className={`relative flex flex-col sm:flex-row items-center mb-16 transition-opacity duration-500 ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} ${visibleEvents.includes(index) ? 'opacity-100' : 'opacity-0'}`}
               style={{ minHeight: '200px' }}
