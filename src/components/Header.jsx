@@ -5,7 +5,6 @@ import logo from '../assets/mainLogo.png';
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 965);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,7 +22,7 @@ const Header = () => {
     };
 
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 965);
+      // This event listener was updating isSmallScreen, but we removed isSmallScreen
     };
 
     window.addEventListener('scroll', handleScroll);
