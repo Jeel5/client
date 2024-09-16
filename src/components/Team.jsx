@@ -54,7 +54,7 @@ const TeamCard = ({ member, index, cardWidth }) => {
         <img
           src={member.photo}
           alt={member.name}
-          className="w-full h-72 object-cover"
+          className="w-full h-96 object-cover" 
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-30 group-hover:opacity-40 transition-opacity duration-300"></div>
         <div className="relative p-4 text-center bg-indigo-100 rounded-lg group-hover:bg-indigo-200 transition-colors duration-300">
