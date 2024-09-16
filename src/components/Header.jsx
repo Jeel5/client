@@ -22,7 +22,6 @@ const Header = () => {
     };
 
     const handleResize = () => {
-      // This event listener was updating isSmallScreen, but we removed isSmallScreen
     };
 
     window.addEventListener('scroll', handleScroll);
