@@ -66,9 +66,14 @@ const Event = () => {
                   <p className="text-gray-500">Date: {event.date}</p>
                 </div>
 
-                <button className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300">
+                <a
+                  href={event.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-center"
+                >
                   Register Now
-                </button>
+                </a>
               </div>
             </div>
           ))}
@@ -87,9 +92,7 @@ const Event = () => {
             <div
               key={event.id}
               ref={(el) => (eventRefs.current[index] = el)}
-              className={`relative flex flex-col sm:flex-row items-center mb-16 transition-opacity duration-500 ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} ${
-                visibleEvents.includes(index) ? 'opacity-100' : 'opacity-0'
-              }`}
+              className={`relative flex flex-col sm:flex-row items-center mb-16 transition-opacity duration-500 ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} ${visibleEvents.includes(index) ? 'opacity-100' : 'opacity-0'}`}
               style={{ minHeight: '200px' }}
             >
               <div
