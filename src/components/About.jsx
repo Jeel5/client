@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import aboutImage from '../assets/DesertPortal.png';
+import aboutpng from '../assets/about.png';
 
 const AboutUs = () => {
   const [isVisibleText, setIsVisibleText] = useState(false);
@@ -70,19 +70,21 @@ const AboutUs = () => {
         About Us
       </div>
 
-      <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto items-center justify-center space-y-6 md:space-y-0 md:space-x-8">
+      <div className="flex flex-col md:flex-row w-full max-w-6xl mx-auto items-center justify-center space-y-6 md:space-y-0 md:space-x-12">
         <div
           id="about-image"
           className={`w-full md:w-1/2 flex justify-center transition-transform duration-1000 ${
             isVisibleImage ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
           }`}
         >
-          <img
-            src={aboutImage}
-            alt="About Us"
-            className="w-full max-w-md h-auto object-cover rounded-lg shadow-lg"
-            style={{ maxHeight: '400px' }}
-          />
+          <div className="p-4 border-4 border-indigo-500 rounded-lg shadow-xl bg-white">
+            <img
+              src={aboutpng}
+              alt="About Us"
+              className="w-full object-cover rounded-lg"
+              style={{ maxHeight: '500px', maxWidth: '700px' }}
+            />
+          </div>
         </div>
 
         <div

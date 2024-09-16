@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
-import logo from '../assets/DesertPortal.png';
+import logo from '../assets/mainLogo.png';
 
 const Header = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -35,11 +35,11 @@ const Header = () => {
 
   return (
     <>
-      <header className="bg-blue-600 text-white shadow-lg fixed top-0 left-0 w-full z-50">
-        <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-full">
+      <header className="bg-blue-600 text-white shadow-lg fixed top-0 left-0 w-full z-50 h-16">
+        <div className="container mx-auto flex justify-between items-center py-4 px-6 max-w-full h-full">
           <div className="flex items-center gap-5 space-x-2">
-            <img src={logo} alt="MLSC Logo" className="w-10 h-10" />
-            <div className="text-2xl font-semibold tracking-wide text-white">MLSC</div>
+            <img src={logo} alt="MLSC Logo" className="w-16 h-16 object-contain" />
+            <div className="text-2xl font-semibold tracking-wide text-white">Microsoft Learning Student Club</div>
           </div>
           <div className="flex items-center md:hidden">
             <button
@@ -65,12 +65,15 @@ const Header = () => {
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </a>
             ))}
-            <button
-              onClick={() => scrollToSection('contact')}
+
+            <a
+              href="https://chat.whatsapp.com/DN15JP4KyOB4OrsAjVT9MG"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-white text-black font-semibold px-4 py-2 rounded-lg hover:bg-gray-200 transition-colors duration-300"
             >
               Join Us
-            </button>
+            </a>
           </nav>
         </div>
 

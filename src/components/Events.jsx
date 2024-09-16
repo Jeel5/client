@@ -48,15 +48,15 @@ const Event = () => {
             <div
               key={event.id}
               className="relative w-full sm:w-80 h-80 p-4 group"
-              onClick={() => setPopupImage(event.image)}
             >
               <div className="absolute left-7 top-8 w-72 h-80 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-xl"></div>
 
               <div className="relative z-10 w-full h-80 bg-gray-100 rounded-lg shadow-lg p-4 flex flex-col items-center justify-between transform transition-transform duration-300 group-hover:scale-105">
                 <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
                   <img
-                    src={event.image}L
+                    src={event.image}
                     alt={event.title}
+                    onClick={() => setPopupImage(event.image)}
                     className="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-110"
                   />
                 </div>
