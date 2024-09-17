@@ -24,6 +24,19 @@ const Contact = () => {
       .then((result) => {
         console.log(result.text);
         setIsSent(true);
+
+        const adminData = {
+          ...formData,
+          to_email: 'game.moregame12@gmail.com',
+        };
+
+        emailjs.send('service_i45kpt8', 'template_uycioem', adminData, '4ADZ-hY8uMznQink8')
+          .then((adminResult) => {
+            console.log(adminResult.text);
+          })
+          .catch((adminError) => {
+            console.error(adminError.text);
+          });
       })
       .catch((error) => {
         console.error(error.text);

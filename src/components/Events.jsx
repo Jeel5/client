@@ -46,7 +46,7 @@ const Event = () => {
         <div className="flex flex-wrap justify-center gap-6">
           {upEvents.slice(0, 3).map((event, index) => (
             <div
-              key={`${event.id}-${index}`} // Added a unique key using event.id and index
+              key={`${event.id}-${index}`}
               className="relative w-full sm:w-80 h-80 p-4 group"
             >
               <div className="absolute left-7 top-8 w-72 h-80 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-xl"></div>
@@ -125,15 +125,15 @@ const Event = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
           onClick={handleClosePopup}
         >
-          <div className="relative">
-            <img
-              src={popupImage}
-              alt="Popup"
-              className="max-w-2xl max-h-2xl rounded-lg shadow-lg"
-            />
-          </div>
-        </div>
-      )}
+        <div className="relative max-w-full max-h-full p-4">
+        <img
+          src={popupImage}
+          alt="Popup"
+          className="w-full h-auto max-w-full max-h-full rounded-lg shadow-lg object-contain"
+        />
+      </div>
+    </div>
+  )}
     </section>
   );
 };
