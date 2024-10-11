@@ -43,41 +43,47 @@ const Event = () => {
 
       <div id="upcoming-events" className="mb-16">
         <h2 className="text-3xl font-extrabold mb-6 text-center text-gray-800">Upcoming Events</h2>
-        <div className="flex flex-wrap justify-center gap-6">
-          {upEvents.slice(0, 3).map((event, index) => (
-            <div
-              key={`${event.id}-${index}`}
-              className="relative w-full sm:w-80 h-80 p-4 group"
-            >
-              <div className="absolute left-7 top-8 w-72 h-80 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-xl"></div>
+        {upEvents.length > 0 ? (
+          <div className="flex flex-wrap justify-center gap-6">
+            {upEvents.slice(0, 3).map((event, index) => (
+              <div
+                key={`${event.id}-${index}`}
+                className="relative w-full sm:w-80 h-80 p-4 group"
+              >
+                <div className="absolute left-7 top-8 w-72 h-80 bg-gradient-to-r from-blue-400 to-blue-600 rounded-lg shadow-xl"></div>
 
-              <div className="relative z-10 w-full h-80 bg-gray-100 rounded-lg shadow-lg p-4 flex flex-col items-center justify-between transform transition-transform duration-300 group-hover:scale-105">
-                <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
-                  <img
-                    src={event.image}
-                    alt={event.title}
-                    onClick={() => setPopupImage(event.image)}
-                    className="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-110"
-                  />
+                <div className="relative z-10 w-full h-80 bg-gray-100 rounded-lg shadow-lg p-4 flex flex-col items-center justify-between transform transition-transform duration-300 group-hover:scale-105">
+                  <div className="w-full h-48 mb-4 overflow-hidden rounded-lg">
+                    <img
+                      src={event.image}
+                      alt={event.title}
+                      onClick={() => setPopupImage(event.image)}
+                      className="w-full h-full object-cover rounded-lg transform transition-transform duration-500 group-hover:scale-110"
+                    />
+                  </div>
+
+                  <div className="text-center mb-2">
+                    <h3 className="text-xl font-bold text-gray-800">{event.title}</h3>
+                    <p className="text-gray-500">Date: {event.date}</p>
+                  </div>
+
+                  <a
+                    href={event.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-center"
+                  >
+                    Register Now
+                  </a>
                 </div>
-
-                <div className="text-center mb-2">
-                  <h3 className="text-xl font-bold text-gray-800">{event.title}</h3>
-                  <p className="text-gray-500">Date: {event.date}</p>
-                </div>
-
-                <a
-                  href={event.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors duration-300 text-center"
-                >
-                  Register Now
-                </a>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        ) : (
+          <div className="text-center text-gray-600">
+            <p>No upcoming events at the moment. Check back soon!</p>
+          </div>
+        )}
       </div>
 
       <div className="max-w-7xl mx-auto">
