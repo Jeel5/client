@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import events from '../data/EventData.jsx';
 import upEvents from '../data/UpcomingEvent.jsx';
 
@@ -6,6 +7,7 @@ const Event = () => {
   const [visibleEvents, setVisibleEvents] = useState([]);
   const eventRefs = useRef([]);
   const [popupImage, setPopupImage] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -32,6 +34,8 @@ const Event = () => {
   const handleClosePopup = () => {
     setPopupImage(null);
   };
+
+  const recentEvents = events.slice(0, 4);
 
   return (
     <section id="events" className="py-16 px-6 bg-gray-100 text-gray-800">
@@ -89,30 +93,42 @@ const Event = () => {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between mb-12">
           <h2 className="text-2xl font-bold text-center text-gray-800">Recent Events</h2>
-          <a href="#all-events" className="text-blue-500 hover:underline">View All</a>
+          <button
+            onClick={() => navigate('/all-events')}
+            className="text-blue-500 hover:text-blue-600 transition-colors duration-300"
+          >
+            View All
+          </button>
         </div>
         <div className="relative">
           <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-1 bg-gray-400 h-full"></div>
 
-          {events.map((event, index) => (
+          {recentEvents.map((event, index) => (
             <div
-              key={`${event.id}-${index}`} // Added a unique key using event.id and index
+              key={event.id}
               ref={(el) => (eventRefs.current[index] = el)}
-              className={`relative flex flex-col sm:flex-row items-center mb-16 transition-opacity duration-500 ${index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'} ${visibleEvents.includes(index) ? 'opacity-100' : 'opacity-0'}`}
+              className={`relative flex flex-col sm:flex-row items-center mb-16 transition-opacity duration-500 ${
+                index % 2 === 0 ? 'sm:flex-row' : 'sm:flex-row-reverse'
+              } ${visibleEvents.includes(index) ? 'opacity-100' : 'opacity-0'}`}
               style={{ minHeight: '200px' }}
             >
               <div
-                className={`flex-shrink-0 w-full sm:w-2/5 mb-6 sm:mb-0 ${index % 2 === 0 ? 'sm:mr-8' : 'sm:ml-8'}`}
+                className={`flex-shrink-0 w-full sm:w-2/5 mb-6 sm:mb-0 ${
+                  index % 2 === 0 ? 'sm:mr-8' : 'sm:ml-8'
+                }`}
               >
                 <img
                   src={event.photo}
                   alt={event.title}
-                  className="w-full h-full object-cover rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105"
+                  onClick={() => setPopupImage(event.photo)}
+                  className="w-full h-full object-cover rounded-lg shadow-lg transform transition-transform duration-500 hover:scale-105 cursor-pointer"
                 />
               </div>
 
               <div
-                className={`absolute w-8 h-8 bg-blue-500 rounded-full border-4 border-white ${index % 2 === 0 ? 'left-1/2 ml-5' : 'right-1/2 mr-5'} hidden sm:block`}
+                className={`absolute w-8 h-8 bg-blue-500 rounded-full border-4 border-white ${
+                  index % 2 === 0 ? 'left-1/2 ml-5' : 'right-1/2 mr-5'
+                } hidden sm:block`}
               ></div>
 
               <div className={`flex-grow w-full sm:w-2/5 ${index % 2 === 0 ? 'sm:ml-40' : 'sm:mr-40'}`}>
@@ -131,15 +147,21 @@ const Event = () => {
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75"
           onClick={handleClosePopup}
         >
-        <div className="relative max-w-full max-h-full p-4">
-        <img
-          src={popupImage}
-          alt="Popup"
-          className="w-full h-auto max-w-full max-h-full rounded-lg shadow-lg object-contain"
-        />
-      </div>
-    </div>
-  )}
+          <div className="relative max-w-4xl max-h-[90vh] p-4">
+            <img
+              src={popupImage}
+              alt="Event"
+              className="w-full h-auto max-w-full max-h-full rounded-lg shadow-lg object-contain"
+            />
+            <button
+              className="absolute top-4 right-4 text-white bg-black bg-opacity-50 rounded-full p-2"
+              onClick={handleClosePopup}
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

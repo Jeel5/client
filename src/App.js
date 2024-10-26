@@ -1,23 +1,17 @@
 import React from 'react';
-import Header from './components/Header';
-import Home from './components/Home';
-import About from './components/About';
-import Team from './components/Team';
-import Events from './components/Events';
-import ContactUs from './components/Contact';
-import Footer from './components/footer';
+import { Routes, Route, BrowserRouter } from 'react-router-dom';
+import Main from './components/Main';
+import AllEvents from './components/AllEvents';
 
 const App = () => {
   return (
-    <div className='bg-gray-100'>
-      <Header />
-      <Home />
-      <About />
-      <Team />
-      <Events />
-      <ContactUs />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/all-events" element={<AllEvents />} />
+        <Route path="*" element={<Main />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
