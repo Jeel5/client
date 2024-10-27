@@ -47,7 +47,7 @@ const Header = () => {
           <div className="flex items-center gap-5 space-x-2">
             <img src={logo} alt="MLSC Logo" className="w-16 h-16 object-contain" />
             <div className="hidden lg:block text-2xl font-semibold tracking-wide text-white">
-              Microsoft Learning Student Club
+              Microsoft Learn Student Club
             </div>
             <div className="block lg:hidden text-2xl font-semibold tracking-wide text-white">
               MLSC
